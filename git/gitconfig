@@ -1,0 +1,5 @@
+[alias]
+  co = checkout
+  br = branch
+  lol = log --graph --oneline --decorate
+  last = show --name-status --oneline

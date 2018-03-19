@@ -1,0 +1,20 @@
+set number " Show line numbers
+
+syntax enable
+
+set list
+set listchars=trail:•,tab:→\ ,nbsp:¬
+
+" set textwidth=80 " Go to new line after 80 characters
+autocmd FileType gitcommit set textwidth=72 "Go to new line after 72 characters for git commit messages
+
+" Insert 2 spaces for tabs
+set expandtab " Convert tab to spaces
+set tabstop=2
+set shiftwidth=2
+
+" Autoindent
+set nocompatible " Turn off vi compatibility
+set autoindent
+filetype indent on
+
