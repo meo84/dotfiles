@@ -1,11 +1,12 @@
 set number " Show line numbers
 
 syntax enable
-
+set clipboard=unnamed
+set autoread
 set list
 set listchars=trail:•,tab:→\ ,nbsp:¬
 
-" set textwidth=80 " Go to new line after 80 characters
+" "set textwidth=80 " Go to new line after 80 characters
 autocmd FileType gitcommit set textwidth=72 "Go to new line after 72 characters for git commit messages
 
 " Insert 2 spaces for tabs
@@ -18,3 +19,9 @@ set nocompatible " Turn off vi compatibility
 set autoindent
 filetype indent on
 
+" Format Elixir files on save
+autocmd BufWritePost *.exs,*.ex silent !mix format %
+
+set noswapfile
+
+set re=2 "Avoid crashing on ts files"
