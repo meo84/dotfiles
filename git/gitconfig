@@ -1,5 +1,18 @@
 [alias]
   co = checkout
   br = branch
-  lol = log --graph --oneline --decorate
-  last = show --name-status --oneline
+  lol = log --graph --oneline --decorate                                         
+  last = show --name-status --oneline                                            
+  up = !git stash && git pull && git stash pop                                   
+  pushu = push -u origin HEAD                                                    
+[user]                                                                           
+→ email = my@email.com                                                 
+[core]
+→ excludesfile = /Users/mg/Documents/dotfiles/git/.gitignore_global              
+[pull]
+  rebase = true
+[rerere]                                                                         
+  enable = true                                                                  
+                                                                                 
+                                                                                 
+                                                                                 
