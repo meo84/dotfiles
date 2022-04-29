@@ -1,6 +1,30 @@
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-source ~/.git-completion.bash
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi                                    
+                                                                                               
+source ~/.git-completion.bash                                                                  
 
 alias gst='git status '
 alias rspecs='bin/rspec --format progress'
+
+get_finale_auth_token() {                                                                      
+  if (($3 =='uat')); then
+    local domain='uat'
+  elif (($3 == 'prod')); then
+    local domain=''
+  fi
+  curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d "{\"usernameOrEmail\":\"$1\",\"password\":\"$2\"}" https://${domain}finaleauth.smartmusic.com/v1/Authentication
+}
+sshin() { eb ssh $1-worker-$2 --profile makemusic_$2; }
+sshwebin() { eb ssh $1-web-$2 --profile makemusic_$2; }
+mixtest() { MIX_ENV=test DATABASE_URL=ecto://mg@localhost/content_test mix test $1; }
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+export NPM_TOKEN="my_npm_token"
+export GITHUB_PACKAGE_TOKEN="my_token"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                   
